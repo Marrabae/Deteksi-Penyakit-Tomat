@@ -107,7 +107,7 @@ elif (app_mode == "Disease Recognition"):
     st.header("Disease Recognition")
     test_image = st.file_uploader("Pilih gambar berjenis .jpg, .jpeg, .png", type=["jpg", "jpeg", "png"])
     if test_image is not None:
-        st.image(test_image, use_column_width=True)
+        st.image(test_image, use_container_width=True)
     if st.button("Mulai Prediksi"):
         if test_image is not None:
             with st.spinner("Model sedang memprediksi..."):
