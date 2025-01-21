@@ -62,21 +62,21 @@ def model_prediction(test_image):
 # Sidebar
 st.sidebar.title("Dashboard")
 app_mode = st.sidebar.selectbox(
-    "Select Page", ["Home", "About", "Disease Recognition"])
+    "Select Page", ["Home", "Tentang", "Prediksi Penyakit"])
 
 # Main Page
 if (app_mode == "Home"):
-    st.header("Sistem Pendeteksi Penyakit Tanaman ")
+    st.header("Sistem Pendeteksi Penyakit Tanaman Tomat")
     st.markdown("""
-    ## Selamat Datang di Sistem Pendeteksi Penyakit Tanaman!
+    ## Selamat Datang di Sistem Pendeteksi Penyakit Tanaman Tomat!
 
-    Sistem ini memanfaatkan teknik Machine Learning yang canggih untuk mengidentifikasi berbagai penyakit tanaman dari gambar daun tanaman. Berikut adalah fitur utama dari aplikasi kami:
+    Sistem ini memanfaatkan teknik Machine Learning yang canggih untuk mengidentifikasi berbagai penyakit tanaman tomat dari gambar daunnya. Berikut adalah fitur utama dari aplikasi kami:
 
-    - **Deteksi Penyakit**: Unggah gambar daun tanaman, dan model kami akan memprediksi penyakit yang menyerang tanaman tersebut.
-    - **Rekomendasi Solusi**: Bersamaan dengan prediksi penyakit, sistem memberikan solusi praktis untuk mengelola atau mengobati penyakit yang teridentifikasi.
+    - **Deteksi Penyakit**: Unggah gambar daun tanaman tomat, dan model kami akan memprediksi penyakit yang menyerang tanaman tersebut.
+    - **Rekomendasi Solusi**: Bersamaan dengan prediksi penyakit, sistem memberikan penyebab dan video yang bisa membantu menangani penyakit yang menimpa tanaman tomat.
 
     ### Cara Menggunakan
-    1. Navigasikan ke halaman "Disease Recognition" pada sidebar.
+    1. Navigasikan ke halaman "Prediksi Penyakit" pada sidebar.
     2. Unggah gambar daun tanaman yang ingin Anda analisis.
     3. Klik tombol "Prediksi" untuk mendapatkan prediksi penyakit dan rekomendasi solusi.
 
@@ -84,27 +84,27 @@ if (app_mode == "Home"):
     """)
 
 # About Project
-elif (app_mode == "About"):
-    st.header("About")
+elif (app_mode == "Tentang"):
+    st.header("Tentang")
     st.markdown("""
     ## Tentang Sistem Pendeteksi Penyakit Tanaman
 
-    Sistem Pendeteksi Penyakit Tanaman adalah proyek yang bertujuan untuk membantu petani dan pekebun dalam mengidentifikasi dan mengelola penyakit tanaman menggunakan kekuatan kecerdasan buatan.
+    Sistem Pendeteksi Penyakit Tanaman adalah proyek yang bertujuan untuk membantu pekebun rumahan dalam mengidentifikasi dan mengelola penyakit tanaman menggunakan kekuatan kecerdasan buatan.
 
     ### Tujuan
-    - **Deteksi Penyakit yang Akurat**: Menyediakan prediksi yang andal untuk berbagai penyakit tanaman berdasarkan gambar daun.
-    - **Solusi Efektif**: Menawarkan solusi yang dapat diterapkan untuk mengobati atau mengelola penyakit yang terdeteksi.
-    - **Teknologi yang Mudah Diakses**: Memastikan teknologi ini mudah diakses dan digunakan oleh semua orang, dari petani profesional hingga pekebun hobi.
+    - **Deteksi Penyakit**: Menyediakan prediksi yang andal untuk berbagai penyakit tanaman berdasarkan gambar daun.
+    - **Solusi**: Menawarkan solusi yang dapat diterapkan untuk mengobati atau mengelola penyakit yang terdeteksi.
+    - **Mudah Diakses**: Memastikan teknologi ini mudah diakses dan digunakan oleh semua orang.
 
     ### Teknologi yang Digunakan
     - **Model Machine Learning**: Dibangun menggunakan Jaringan Saraf Konvolusional (CNN) dengan TensorFlow.
-    - **Dataset**: Menggunakan 'New Plant Datasets' dari Kaggle yang dibuat oleh Vipoool. Dataset ini menyediakan lebih dari 80 ribu gambar daun dari 14 jenis tanaman.
-    - **Deploy**: Di-deploy menggunakan Streamlit untuk antarmuka berbasis web yang interaktif dan sederhana.
+    - **Dataset**: Menggunakan 'tomatoleaf' dari Kaggle yang dibuat oleh kaustubh b. Dataset ini menyediakan lebih dari 10 ribu gambar daun dari 9 jenis penyakit tanaman tomat.
+    - **Deploy**: Di-deploy menggunakan Streamlit untuk antarmuka berbasis web yang sederhana.
     """)
 
 # Prediction Page
-elif (app_mode == "Disease Recognition"):
-    st.header("Disease Recognition")
+elif (app_mode == "Prediksi Penyakit"):
+    st.header("Prediksi Penyakit")
     test_image = st.file_uploader("Pilih gambar berjenis .jpg, .jpeg, .png", type=["jpg", "jpeg", "png"])
     if test_image is not None:
         st.image(test_image, use_container_width=True)
