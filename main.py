@@ -72,7 +72,7 @@ if (app_mode == "Home"):
 
     Sistem ini memanfaatkan teknik Machine Learning yang canggih untuk mengidentifikasi berbagai penyakit tanaman tomat dari gambar daunnya. Berikut adalah fitur utama dari aplikasi kami:
 
-    - **Deteksi Penyakit**: Unggah gambar daun tanaman tomat, dan model akan memDeteksi penyakit yang menyerang tanaman tersebut.
+    - **Deteksi Penyakit**: Unggah gambar daun tanaman tomat, dan model akan mendeteksi penyakit yang menyerang tanaman tersebut.
     - **Rekomendasi Solusi**: Bersamaan dengan Deteksi penyakit, sistem memberikan penyebab dan video yang bisa membantu menangani penyakit yang menimpa tanaman tomat.
 
     ### Cara Menggunakan
