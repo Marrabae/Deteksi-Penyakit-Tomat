@@ -49,7 +49,7 @@ disease_data = {
     }
 }
 
-# Fungsi prediksi model
+# Fungsi Deteksi model
 def model_prediction(test_image):
     model = load_model('model.h5')
     image = load_img(test_image, target_size=(130, 130))
@@ -62,7 +62,7 @@ def model_prediction(test_image):
 # Sidebar
 st.sidebar.title("Dashboard")
 app_mode = st.sidebar.selectbox(
-    "Select Page", ["Home", "Tentang", "Prediksi Penyakit"])
+    "Select Page", ["Home", "Tentang", "Deteksi Penyakit"])
 
 # Main Page
 if (app_mode == "Home"):
@@ -72,13 +72,13 @@ if (app_mode == "Home"):
 
     Sistem ini memanfaatkan teknik Machine Learning yang canggih untuk mengidentifikasi berbagai penyakit tanaman tomat dari gambar daunnya. Berikut adalah fitur utama dari aplikasi kami:
 
-    - **Deteksi Penyakit**: Unggah gambar daun tanaman tomat, dan model kami akan memprediksi penyakit yang menyerang tanaman tersebut.
-    - **Rekomendasi Solusi**: Bersamaan dengan prediksi penyakit, sistem memberikan penyebab dan video yang bisa membantu menangani penyakit yang menimpa tanaman tomat.
+    - **Deteksi Penyakit**: Unggah gambar daun tanaman tomat, dan model akan memDeteksi penyakit yang menyerang tanaman tersebut.
+    - **Rekomendasi Solusi**: Bersamaan dengan Deteksi penyakit, sistem memberikan penyebab dan video yang bisa membantu menangani penyakit yang menimpa tanaman tomat.
 
     ### Cara Menggunakan
-    1. Navigasikan ke halaman "Prediksi Penyakit" pada sidebar.
+    1. Navigasikan ke halaman "Deteksi Penyakit" pada sidebar.
     2. Unggah gambar daun tanaman yang ingin Anda analisis.
-    3. Klik tombol "Prediksi" untuk mendapatkan prediksi penyakit dan rekomendasi solusi.
+    3. Klik tombol "Deteksi" untuk mendapatkan Deteksi penyakit dan rekomendasi solusi.
 
     Kami berharap alat ini membantu Anda dalam menjaga kesehatan tanaman secara efektif.
     """)
@@ -92,7 +92,7 @@ elif (app_mode == "Tentang"):
     Sistem Pendeteksi Penyakit Tanaman adalah proyek yang bertujuan untuk membantu pekebun rumahan dalam mengidentifikasi dan mengelola penyakit tanaman menggunakan kekuatan kecerdasan buatan.
 
     ### Tujuan
-    - **Deteksi Penyakit**: Menyediakan prediksi yang andal untuk berbagai penyakit tanaman berdasarkan gambar daun.
+    - **Deteksi Penyakit**: Menyediakan Deteksi yang andal untuk berbagai penyakit tanaman tomat berdasarkan gambar daun.
     - **Solusi**: Menawarkan solusi yang dapat diterapkan untuk mengobati atau mengelola penyakit yang terdeteksi.
     - **Mudah Diakses**: Memastikan teknologi ini mudah diakses dan digunakan oleh semua orang.
 
@@ -103,14 +103,14 @@ elif (app_mode == "Tentang"):
     """)
 
 # Prediction Page
-elif (app_mode == "Prediksi Penyakit"):
-    st.header("Prediksi Penyakit")
+elif (app_mode == "Deteksi Penyakit"):
+    st.header("Deteksi Penyakit")
     test_image = st.file_uploader("Pilih gambar berjenis .jpg, .jpeg, .png", type=["jpg", "jpeg", "png"])
     if test_image is not None:
         st.image(test_image, use_container_width=True)
-    if st.button("Mulai Prediksi"):
+    if st.button("Mulai Deteksi"):
         if test_image is not None:
-            with st.spinner("Model sedang memprediksi..."):
+            with st.spinner("Model sedang mendeteksi..."):
                 class_name = ['Tomato Bacterial spot',
                               'Tomato Early blight', 'Tomato Late blight', 'Tomato Leaf Mold',
                               'Tomato Septoria leaf spot', 'Tomato Spider mites Two-spotted spider mite',
@@ -118,7 +118,7 @@ elif (app_mode == "Prediksi Penyakit"):
                               'Tomato healthy']
                 result_index = model_prediction(test_image)
                 predicted_class = class_name[result_index]
-                st.success("Hasil dari prediksi adalah {}".format(predicted_class))
+                st.success("Hasil dari Deteksi adalah {}".format(predicted_class))
                 cause_data = disease_data.get(predicted_class, {"cause": "Informasi penyebab tidak ditemukan", "video": ""})
                 st.success("Penyebab penyakit: {}".format(cause_data["cause"]))
                 if cause_data["video"]:
